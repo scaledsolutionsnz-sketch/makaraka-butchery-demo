@@ -8,8 +8,13 @@
 <meta property="og:title" content="Makaraka Butchery | Butcher, Gisborne">
 <meta property="og:description" content="The corner butcher at the Makaraka crossroads, Gisborne. Beef, lamb, pork, sausages and smallgoods cut to order.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1597417321971-45e034f7a993?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:image" content="https://makaraka-butchery-demo.vercel.app/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://makaraka-butchery-demo.vercel.app/assets/og.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2820'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23c96a2b' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/hero-shopfront.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -110,8 +115,11 @@ header{
 .hero-slides{position:absolute;inset:0}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
 .hero-slide.on{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover}
-.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,31,25,.62) 0%,rgba(20,31,25,.5) 45%,rgba(20,31,25,.78) 100%)}
+.hero-slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:heroDrift 26s ease-in-out infinite alternate}
+@keyframes heroDrift{from{transform:scale(1.04)}to{transform:scale(1.11)}}
+.hero-scrim{position:absolute;inset:0;background:
+  linear-gradient(100deg,rgba(20,31,25,.9) 0%,rgba(20,31,25,.72) 46%,rgba(20,31,25,.4) 100%),
+  linear-gradient(180deg,rgba(20,31,25,.72) 0%,rgba(20,31,25,.32) 42%,rgba(20,31,25,.82) 100%)}
 .hero-inner{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:120px 22px 70px;width:100%}
 .hero-eyebrow{
   display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.16em;
@@ -288,12 +296,18 @@ footer{background:var(--ink);color:var(--text-inverse-soft);padding:60px 0 30px}
 @media(max-width:640px){
   section{padding:70px 0}
   .hero-inner{padding-top:100px}
+  /* On a narrow screen the angled scrim covers the whole width and buries the
+     photo, so fall back to a vertical one and frame the shopfront rather than
+     the forecourt. */
+  .hero-scrim{background:linear-gradient(180deg,rgba(20,31,25,.7) 0%,rgba(20,31,25,.54) 34%,rgba(20,31,25,.86) 100%)}
+  .hero-slide img{object-position:50% 40%}
   .hero p.lead{font-size:1.03rem}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
   .reveal{opacity:1;transform:none}
+  .hero-slide img{animation:none !important;transform:none}
 }
 </style>
 </head>
@@ -329,10 +343,8 @@ footer{background:var(--ink);color:var(--text-inverse-soft);padding:60px 0 30px}
 <main id="top">
 
 <section class="hero" style="padding:0">
-  <div class="hero-slides" aria-hidden="true">
-    <div class="hero-slide on"><img src="https://images.unsplash.com/photo-1597417321971-45e034f7a993?q=80&w=1800&auto=format&fit=crop" alt="Fresh cuts of meat laid out in a butcher's display counter" fetchpriority="high" width="1800" height="952"></div>
-    <div class="hero-slide"><img src="https://images.unsplash.com/photo-1560166444-441876015a70?q=80&w=1800&auto=format&fit=crop" alt="Butcher slicing meat by hand on a wooden block" loading="lazy" width="1800" height="1060"></div>
-    <div class="hero-slide"><img src="https://images.unsplash.com/photo-1759692072059-2d9c209380ac?q=80&w=1800&auto=format&fit=crop" alt="Inside a traditional butcher's shop" loading="lazy" width="1800" height="1200"></div>
+  <div class="hero-slides">
+    <div class="hero-slide on"><img src="assets/hero-shopfront.jpg" alt="The Makaraka Butchery shopfront on Main Road, its Top Grade Meat sign under the corrugated iron verandah" fetchpriority="high" width="1672" height="941"></div>
   </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-inner">
