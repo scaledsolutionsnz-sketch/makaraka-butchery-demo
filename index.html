@@ -1,682 +1,271 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Makaraka Butchery | Butcher, Gisborne</title>
-<meta name="description" content="Makaraka Butchery, the corner butcher at 98 Main Road, Makaraka, Gisborne. Beef, lamb, pork, sausages and smallgoods cut to order. Call 06 867 1420.">
-<meta property="og:title" content="Makaraka Butchery | Butcher, Gisborne">
-<meta property="og:description" content="The corner butcher at the Makaraka crossroads, Gisborne. Beef, lamb, pork, sausages and smallgoods cut to order.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://makaraka-butchery-demo.vercel.app/assets/og.jpg">
+<meta name="robots" content="noindex">
+<title>Makaraka Butchery | Homekill &amp; Butcher, Gisborne</title>
+<meta name="description" content="Homekill services and meat processing for venison, sheep, beef, goats and pigs, plus meat over the counter, at 98 Main Road, Makaraka, Gisborne. Call 027 603 5143.">
+<meta property="og:title" content="Makaraka Butchery | Homekill &amp; Butcher, Gisborne">
+<meta property="og:description" content="Homekill, meat processing and top grade meat at 98 Main Road, Makaraka.">
+<meta property="og:image" content="https://makaraka-butchery-demo.vercel.app/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://makaraka-butchery-demo.vercel.app/assets/og.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a2820'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23c96a2b' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
-<link rel="preload" as="image" href="assets/hero-shopfront.jpg" media="(min-width:761px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/hero-shopfront-portrait.jpg" media="(max-width:760px)" fetchpriority="high">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#141f19;
-  --pine:#1a2820;
-  --pine-2:#24382c;
-  --bone:#f2f3ea;
-  --bone-2:#e8ebdd;
-  --ember:#a5541e;
-  --ember-deep:#8a4517;
-  --ember-bright:#c96a2b;
-  --text:#26332c;
-  --text-soft:#55645c;
-  --text-inverse:#eef0e9;
-  --text-inverse-soft:#b9c4ba;
-  --radius:14px;
-  --shadow:0 14px 34px rgba(20,31,25,.12);
-  --ease:cubic-bezier(.16,1,.3,1);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Work Sans',sans-serif;
-  font-size:16.5px;
-  line-height:1.7;
-  color:var(--text);
-  background:var(--bone);
-  overflow-x:hidden;
-}
-::selection{background:var(--ember);color:#fff}
-img{max-width:100%;display:block;image-orientation:from-image;filter:saturate(.85) contrast(1.05)}
-h1,h2,h3{font-family:'Young Serif',serif;font-weight:400;line-height:1.15}
-a{color:inherit}
-.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
-
-/* Opening overlay */
-#intro{
-  position:fixed;inset:0;z-index:200;background:var(--pine);
-  display:flex;align-items:center;justify-content:center;
-  transition:opacity .7s var(--ease),visibility .7s;
-}
-#intro.gone{opacity:0;visibility:hidden}
-#intro .mark{font-family:'Young Serif',serif;font-size:clamp(1.6rem,4vw,2.6rem);color:var(--bone);opacity:0;transform:translateY(14px);animation:introIn .8s var(--ease) .1s forwards}
-#intro .mark span{color:var(--ember)}
-@keyframes introIn{to{opacity:1;transform:none}}
-
-/* Nav */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(26,40,32,.82);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(243,241,233,.12);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1160px;margin:0 auto;padding:0 22px}
-.logo{font-family:'Young Serif',serif;font-size:1.22rem;color:var(--bone);text-decoration:none;letter-spacing:.01em}
-.logo span{color:var(--ember)}
-.nav-links{display:flex;align-items:center;gap:1.9rem;list-style:none}
-.nav-links a{color:var(--text-inverse-soft);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .25s}
-.nav-links a:hover{color:var(--bone)}
-.nav-call{
-  display:inline-flex;align-items:center;gap:.5rem;
-  height:40px;padding:0 18px;line-height:1;
-  background:var(--ember);color:#fff !important;border-radius:999px;
-  font-weight:600;font-size:.92rem;text-decoration:none;
-  transition:background .25s,transform .25s;
-}
-.nav-call:hover{background:var(--ember-deep);transform:translateY(-1px)}
-.nav-call svg{width:15px;height:15px;flex:none}
-.burger{display:none;background:none;border:0;cursor:pointer;padding:10px}
-.burger span{display:block;width:24px;height:2px;background:var(--bone);margin:5px 0;transition:transform .3s var(--ease),opacity .3s}
-.mobile-menu{display:none}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .burger{display:block}
-  .mobile-menu{
-    display:block;position:fixed;top:68px;left:0;right:0;z-index:99;
-    background:var(--pine);border-bottom:1px solid rgba(243,241,233,.12);
-    padding:.6rem 22px 1.4rem;
-    transform:translateY(-110%);visibility:hidden;
-    transition:transform .4s var(--ease),visibility 0s .4s;
-  }
-  .mobile-menu.open{transform:none;visibility:visible;transition:transform .4s var(--ease),visibility 0s}
-  .mobile-menu a{display:block;padding:.85rem 0;color:var(--bone);text-decoration:none;font-size:1.05rem;font-weight:500;border-bottom:1px solid rgba(243,241,233,.08)}
-  .mobile-menu .nav-call{display:inline-flex;margin-top:1rem;border-bottom:0}
-  body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  body.menu-open .burger span:nth-child(2){opacity:0}
-  body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-}
-
-/* Hero */
-.hero{
-  position:relative;min-height:100dvh;background:var(--pine);
-  display:flex;align-items:center;color:var(--text-inverse);
-  overflow:hidden;
-}
-.hero-slides{position:absolute;inset:0}
-.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
-.hero-slide.on{opacity:1}
-.hero-slide picture{position:absolute;inset:0;display:block}
-.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:50% 42%;transform:scale(1.01);animation:heroDrift 30s ease-in-out infinite alternate}
-@keyframes heroDrift{from{transform:scale(1.01)}to{transform:scale(1.05)}}
-.hero-scrim{position:absolute;inset:0;background:
-  linear-gradient(100deg,rgba(20,31,25,.88) 0%,rgba(20,31,25,.70) 34%,rgba(20,31,25,.34) 62%,rgba(20,31,25,.12) 100%),
-  linear-gradient(180deg,rgba(20,31,25,.55) 0%,rgba(20,31,25,.16) 40%,rgba(20,31,25,.78) 100%)}
-.hero-inner{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:120px 22px 70px;width:100%}
-.hero-eyebrow{
-  display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:#dd8845;margin-bottom:1.1rem;
-}
-.hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem);max-width:15ch;color:var(--bone);text-wrap:balance}
-.hero p.lead{margin:1.3rem 0 2rem;font-size:1.13rem;font-weight:300;max-width:44ch;color:var(--text-inverse-soft)}
-.hero-ctas{display:flex;gap:.9rem;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  min-height:52px;padding:0 28px;border-radius:999px;line-height:1.2;
-  font-weight:600;font-size:1rem;text-decoration:none;cursor:pointer;border:0;
-  transition:background .25s,transform .25s,border-color .25s;
-}
-.btn svg{width:17px;height:17px;flex:none}
-.btn-ember{background:var(--ember);color:#fff}
-.btn-ember:hover{background:var(--ember-deep);transform:translateY(-2px)}
-.btn-ghost{background:rgba(243,241,233,.08);color:var(--bone);border:1px solid rgba(243,241,233,.4)}
-.btn-ghost:hover{background:rgba(243,241,233,.16);transform:translateY(-2px)}
-.hero-quote{
-  margin-top:2.6rem;max-width:460px;
-  background:rgba(20,31,25,.68);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(243,241,233,.18);
-  border-radius:var(--radius);padding:1.1rem 1.3rem;
-}
-.hero-quote .stars{color:var(--ember-bright);letter-spacing:.12em;font-size:.9rem;margin-bottom:.35rem}
-.hero-quote blockquote{font-size:.98rem;font-weight:300;color:var(--text-inverse);min-height:3.2em;transition:opacity .5s}
-.hero-quote blockquote.fade{opacity:0}
-.hero-quote cite{display:block;margin-top:.4rem;font-style:normal;font-size:.85rem;color:var(--text-inverse-soft)}
-.hero-quote .example-tag{font-size:.72rem;color:var(--text-inverse-soft);opacity:.8;display:block;margin-top:.5rem}
-
-/* Section basics */
-section{padding:96px 0}
-.sec-head{max-width:640px;margin-bottom:3rem}
-.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--ink)}
-.sec-head p{margin-top:.9rem;color:var(--text-soft)}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1;transform:none}
-
-/* Services */
-#services{background:var(--bone)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.card{
-  background:#fff;border-radius:var(--radius);overflow:hidden;
-  box-shadow:var(--shadow);display:flex;flex-direction:column;
-  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
-}
-.card:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(20,31,25,.18)}
-.card figure{aspect-ratio:4/3;overflow:hidden}
-.card figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.card:hover figure img{transform:scale(1.05)}
-.card-body{padding:1.4rem 1.5rem 1.7rem}
-.card-label{
-  display:inline-flex;align-items:center;gap:.45rem;
-  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ember);margin-bottom:.55rem;
-}
-.card-label svg{width:14px;height:14px}
-.card h3{font-size:1.28rem;color:var(--ink);margin-bottom:.55rem}
-.card p{font-size:.95rem;color:var(--text-soft)}
-@media(max-width:980px){.cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.cards{grid-template-columns:1fr}}
-
-/* About */
-#about{background:var(--bone-2)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
-.about-photo{position:relative}
-.about-photo img{aspect-ratio:4/3;object-fit:cover;width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
-.about-photo .corner{
-  position:absolute;left:-12px;bottom:-12px;
-  background:var(--ember);color:#fff;border-radius:10px;
-  padding:.55rem 1rem;font-weight:600;font-size:.85rem;letter-spacing:.02em;
-  box-shadow:0 10px 22px rgba(169,84,30,.35);
-}
-.about-copy h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--ink);margin-bottom:1.1rem}
-.about-copy p{color:var(--text-soft);margin-bottom:1rem}
-.checklist{list-style:none;margin-top:1.6rem}
-.checklist li{display:flex;gap:.8rem;align-items:flex-start;padding:.55rem 0;font-weight:500;color:var(--text)}
-.checklist svg{width:22px;height:22px;flex:none;color:var(--ember);margin-top:2px}
-@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:2.2rem}}
-
-/* Crew */
-#crew{background:var(--bone)}
-.crew-note{font-size:.85rem;color:var(--text-soft);background:var(--bone-2);border-radius:999px;display:inline-block;padding:.35rem 1rem;margin-bottom:2rem}
-.crew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.crew-card{
-  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);
-  padding:2rem 1.6rem;text-align:center;
-  transition:transform .35s var(--ease);
-}
-.crew-card:hover{transform:translateY(-5px)}
-.avatar{
-  width:86px;height:86px;border-radius:50%;margin:0 auto 1.1rem;
-  background:var(--pine);border:3px solid var(--ember);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Young Serif',serif;font-size:1.6rem;color:var(--bone);
-}
-.crew-card h3{font-size:1.12rem;color:var(--ink)}
-.crew-card .role{font-size:.85rem;font-weight:600;color:var(--ember);margin:.25rem 0 .7rem}
-.crew-card p{font-size:.92rem;color:var(--text-soft)}
-@media(max-width:860px){.crew-grid{grid-template-columns:1fr;max-width:420px}}
-
-/* Reviews */
-#reviews{background:var(--bone-2)}
-.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-bottom:2.4rem}
-.review-card{
-  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);
-  padding:1.7rem 1.6rem;display:flex;flex-direction:column;gap:.7rem;
-}
-.review-card .stars{color:var(--ember);letter-spacing:.14em;font-size:.95rem}
-.review-card p{font-size:.96rem;color:var(--text)}
-.review-card .who{font-size:.87rem;font-weight:600;color:var(--text-soft)}
-.review-note{font-size:.85rem;color:var(--text-soft);margin-bottom:1.4rem}
-@media(max-width:860px){.review-grid{grid-template-columns:1fr}}
-
-/* Review banner */
-.banner{
-  background:var(--pine);color:var(--text-inverse);
-  padding:70px 0;
-}
-.banner-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.banner h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--bone);max-width:20ch}
-.banner p{color:var(--text-inverse-soft);margin-top:.5rem;max-width:42ch}
-
-/* Contact */
-#contact{background:var(--bone)}
-.contact-card{
-  background:var(--pine);border-radius:calc(var(--radius) + 6px);
-  overflow:hidden;box-shadow:0 26px 60px rgba(20,31,25,.25);
-  display:grid;grid-template-columns:1fr 1fr;min-height:520px;
-}
-.contact-map{position:relative;min-height:320px}
-.contact-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.contact-info{padding:3rem 2.6rem;color:var(--text-inverse)}
-.contact-info h2{color:var(--bone);font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:.7rem}
-.contact-info>p{color:var(--text-inverse-soft);margin-bottom:1.8rem;max-width:40ch}
-.contact-btns{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
-.contact-btns .btn{width:100%}
-.info-rows{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-bottom:1.8rem}
-.info-rows li{display:flex;gap:.85rem;align-items:flex-start;font-size:.95rem;color:var(--text-inverse-soft)}
-.info-rows svg{width:19px;height:19px;flex:none;color:var(--ember-bright);margin-top:3px}
-.info-rows a{color:var(--text-inverse);text-decoration:none}
-.info-rows a:hover{text-decoration:underline}
-.socials{display:flex;gap:.8rem}
-.socials a{
-  width:42px;height:42px;border-radius:50%;
-  border:1px solid rgba(243,241,233,.25);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--text-inverse-soft);transition:color .25s,border-color .25s,transform .25s;
-}
-.socials a:hover{color:var(--ember-bright);border-color:var(--ember-bright);transform:translateY(-2px)}
-.socials svg{width:18px;height:18px}
-@media(max-width:860px){
-  .contact-card{grid-template-columns:1fr}
-  .contact-map{order:2;min-height:300px}
-  .contact-info{order:1;padding:2.2rem 1.6rem}
-}
-
-/* Footer */
-footer{background:var(--ink);color:var(--text-inverse-soft);padding:60px 0 30px}
-.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
-.foot-grid .logo{font-size:1.3rem}
-.foot-grid p{font-size:.92rem;margin-top:.8rem;max-width:34ch}
-.foot-grid h3{font-family:'Work Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);margin-bottom:1rem}
-.foot-grid ul{list-style:none}
-.foot-grid ul li{margin-bottom:.55rem}
-.foot-grid ul a{color:var(--text-inverse-soft);text-decoration:none;font-size:.93rem;transition:color .25s}
-.foot-grid ul a:hover{color:var(--ember-bright)}
-.foot-bottom{border-top:1px solid rgba(243,241,233,.1);padding-top:1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.85rem}
-@media(max-width:860px){.foot-grid{grid-template-columns:1fr;gap:2rem}}
-
-@media(max-width:640px){
-  section{padding:70px 0}
-  .hero-inner{padding-top:100px}
-  /* On a narrow screen the angled scrim covers the whole width and buries the
-     photo, so fall back to a vertical one and frame the shopfront rather than
-     the forecourt. */
-  .hero-scrim{background:linear-gradient(180deg,rgba(20,31,25,.72) 0%,rgba(20,31,25,.46) 30%,rgba(20,31,25,.88) 100%)}
-  .hero-slide img{object-position:50% 50%}
-  .hero p.lead{font-size:1.03rem}
-}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
-  .reveal{opacity:1;transform:none}
-  .hero-slide img{animation:none !important;transform:none}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-1-1920.webp" imagesrcset="img/hero-1-1080.webp 1080w, img/hero-1-1920.webp 1920w, img/hero-1-3840.webp 3840w" imagesizes="100vw">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="intro" aria-hidden="true"><div class="mark">Makaraka <span>Butchery</span></div></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+  <symbol id="i-cleaver" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l3 3v7H4z"/><path d="M18 9h3v3h-3"/><circle cx="7.5" cy="7.5" r="1"/><path d="M8 14v6"/></symbol>
+  <symbol id="i-farm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-7h6v7M3 21h18"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5H3v7h4c0 3-1.5 5-4 5v4zm11 0c3 0 7-1 7-8V5h-7v7h4c0 3-1.5 5-4 5v4z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></symbol>
+  <symbol id="i-google" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.3z"/><path d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22z" opacity=".8"/><path d="M6.4 14c-.2-.6-.3-1.3-.3-2s.1-1.4.3-2V7.4H3.1a10 10 0 0 0 0 9.2z" opacity=".6"/><path d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.4L6.4 10C7.2 7.7 9.4 6 12 6z" opacity=".9"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V12h2.8v10H14V12h2.8l.4-3.5z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.3 6.3 0 1 0 5.4 6.3V8.6a8 8 0 0 0 4.6 1.5V6.7a4.7 4.7 0 0 1-4.6-4.7z"/></symbol>
+</svg>
 
-<header>
-  <nav class="nav" aria-label="Main">
-    <a class="logo" href="#top">Makaraka <span>Butchery</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">What we cut</a></li>
+<a class="skip" href="#services">Skip to content</a>
+
+<!-- 1. NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Makaraka Butchery, back to top">
+      <span class="mark" aria-hidden="true">MB</span>
+      <span>Makaraka Butchery<small>Homekill · Meat processing</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Find us</a></li>
-      <li><a class="nav-call" href="tel:+64276035143">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        027 603 5143</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#visit">Visit</a></li>
     </ul>
-    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">What we cut</a>
-    <a href="#about">About</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#contact">Find us</a>
-    <a class="nav-call" href="tel:+64276035143">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      Call 027 603 5143</a>
+    <div class="nav-right">
+      <a class="btn btn-primary nav-call" href="tel:+64276035143"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span class="label">027 603 5143</span><span class="sr">Call 027 603 5143</span></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main id="top">
 
-<section class="hero" style="padding:0">
-  <div class="hero-slides">
-    <div class="hero-slide on"><picture><source media="(max-width:760px)" srcset="assets/hero-shopfront-portrait.jpg" width="900" height="1201"><img src="assets/hero-shopfront.jpg" alt="The Makaraka Butchery shopfront on Main Road, its Top Grade Meat sign under the corrugated iron verandah" fetchpriority="high" width="1672" height="941"></picture></div>
+<!-- 2. HERO -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-slides" id="heroSlides">
+    <img class="active" src="img/hero-1-1920.webp" srcset="img/hero-1-1080.webp 1080w, img/hero-1-1920.webp 1920w, img/hero-1-3840.webp 3840w" sizes="100vw" alt="The Makaraka Butchery shop on Main Road with its Homekill Services sign" width="1920" height="1080" fetchpriority="high">
+    <img src="img/hero-2-1920.webp" srcset="img/hero-2-1080.webp 1080w, img/hero-2-1920.webp 1920w, img/hero-2-3840.webp 3840w" sizes="100vw" alt="The No Bum Steers Here cow mural on the side of the shop" width="1440" height="1920" loading="lazy">
+    <img src="img/hero-3-1920.webp" srcset="img/hero-3-1080.webp 1080w, img/hero-3-1920.webp 1920w, img/hero-3-3840.webp 3840w" sizes="100vw" alt="A raw ribeye steak with rosemary and salt" width="1920" height="1280" loading="lazy">
+    <img src="img/hero-4-1920.webp" srcset="img/hero-4-1080.webp 1080w, img/hero-4-1920.webp 1920w, img/hero-4-3840.webp 3840w" sizes="100vw" alt="Two raw steaks on a board with herbs" width="1920" height="1280" loading="lazy">
   </div>
-  <div class="hero-scrim" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <span class="hero-eyebrow">Butcher, Makaraka, Gisborne</span>
-    <h1>Proper meat, cut by a real butcher.</h1>
-    <p class="lead">Beef, lamb, pork, sausages and smallgoods over the counter at 98 Main Road, where State Highway 35 begins.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-ember" href="tel:+64276035143">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call the shop</a>
-      <a class="btn btn-ghost" href="#contact">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Find us</a>
-    </div>
-    <div class="hero-quote">
-      <div class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <blockquote id="heroQuote">Popped in for a couple of scotch fillets on the way home. Cut fresh while I waited and the price beat the supermarket.</blockquote>
-      <cite id="heroCite">Tracey M, Te Hapara</cite>
-      <span class="example-tag">Example reviews while we gather our Google reviews.</span>
-    </div>
-  </div>
-</section>
-
-<section id="services">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2>What comes over the counter</h2>
-      <p>Everything cut and trimmed in the shop. Tell us what you are cooking and how many you are feeding, and we will sort the rest.</p>
+    <span class="eyebrow pop">98 Main Road · Makaraka, Gisborne</span>
+    <h1 class="pop">Homekill and top grade meat, <em>no bum steers here</em></h1>
+    <p class="lead pop">Homekill services and meat processing for venison, sheep, beef, goats and pigs, plus steaks, sausages and bones over the counter.</p>
+    <div class="hero-ctas pop">
+      <a class="btn btn-primary" href="tel:+64276035143"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call 027 603 5143</a>
+      <a class="btn btn-outline-light" href="#visit"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Find the shop</a>
     </div>
-    <div class="cards">
-      <article class="card reveal">
-        <figure><img src="https://images.unsplash.com/photo-1690983323540-d6e889c4b107?q=80&w=900&h=675&auto=format&fit=crop" alt="Thick-cut beef steaks on a board with herbs" loading="lazy" width="900" height="675"></figure>
-        <div class="card-body">
-          <span class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6c2.5 2.5 2.5 8-1 11.5S8.5 21 6 18.5 3.5 10.5 7 7s8.5-3.5 11-1z"/><path d="M9 12a3 3 0 0 0 3 3"/></svg>Beef</span>
-          <h3>Beef cuts</h3>
-          <p>Steak cut to the thickness you ask for, roasts tied by hand, and mince made in the shop.</p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <figure><img src="https://images.unsplash.com/photo-1602470521007-20293bd1fd31?q=80&w=900&h=675&auto=format&fit=crop" alt="Fresh lamb cuts on a wooden board" loading="lazy" width="900" height="675"></figure>
-        <div class="card-body">
-          <span class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8c0 4 3 7 7 7s7-3 7-7"/></svg>Lamb</span>
-          <h3>Lamb and hogget</h3>
-          <p>Legs, shoulders, racks and chops. Boned and rolled for the roast, or frenched for the barbecue.</p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <figure><img src="https://images.unsplash.com/photo-1588347818036-558601350947?q=80&w=900&h=675&auto=format&fit=crop" alt="Pork cuts laid out on a wooden table" loading="lazy" width="900" height="675"></figure>
-        <div class="card-body">
-          <span class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="9.5" cy="10.5" r=".5"/><circle cx="14.5" cy="10.5" r=".5"/><path d="M10 15h4"/></svg>Pork</span>
-          <h3>Pork and poultry</h3>
-          <p>Belly with the crackling scored, chops, schnitzel and fresh chicken, cut the way you want it.</p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <figure><img src="https://images.unsplash.com/photo-1687814776679-8c81b753f870?q=80&w=900&h=675&auto=format&fit=crop" alt="Sausages browning on a grill" loading="lazy" width="900" height="675"></figure>
-        <div class="card-body">
-          <span class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15c0-4 3-9 8-9s8 5 8 9a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg>Sausages</span>
-          <h3>Sausages</h3>
-          <p>Made at the shop in small batches. Old-fashioned flavours the kids will actually eat.</p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <figure><img src="https://images.unsplash.com/photo-1624772398061-bbfa87ec6b5a?q=80&w=900&h=675&auto=format&fit=crop" alt="Smallgoods resting on a stainless steel tray" loading="lazy" width="900" height="675"></figure>
-        <div class="card-body">
-          <span class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-5 15-5 18 0-3 5-15 5-18 0z"/><circle cx="12" cy="12" r="2"/></svg>Smallgoods</span>
-          <h3>Bacon, ham and smallgoods</h3>
-          <p>Bacon, ham on the bone, saveloys and luncheon. The classics, done properly.</p>
-        </div>
-      </article>
-      <article class="card reveal">
-        <figure><img src="https://images.unsplash.com/photo-1786812594035-d9ff77d0ecb2?q=80&w=900&h=675&auto=format&fit=crop" alt="Priced meat packs in a butcher's display" loading="lazy" width="900" height="675"></figure>
-        <div class="card-body">
-          <span class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 8.5L12 13l8.7-4.5"/><path d="M12 13v9"/></svg>Packs</span>
-          <h3>Freezer and BBQ packs</h3>
-          <p>Mixed packs for the freezer, the smoker or the Saturday barbecue. Ring ahead and we will have it boxed.</p>
-        </div>
-      </article>
+    <div class="hero-foot pop">
+      <a class="rating" href="https://maps.google.com/?cid=11711514169541870253" target="_blank" rel="noopener" aria-label="Rated 5.0 on Google, opens Google reviews">
+        <b>5.0</b><span><span class="stars" aria-hidden="true">★★★★★</span><small>"Prices are reasonable … Top man!" on Google</small></span>
+      </a>
+      <div class="hero-controls">
+        <div class="slide-dots" id="dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
+        <button class="slide-toggle" id="slideToggle" type="button" aria-pressed="false" aria-label="Pause slideshow"><svg class="i-pause" aria-hidden="true"><use href="#i-pause"/></svg><svg class="i-play" aria-hidden="true"><use href="#i-play"/></svg></button>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<!-- 3. TRUST -->
+<section class="trust" aria-label="Why use Makaraka Butchery">
+  <div class="wrap trust-grid">
+    <div class="trust-item pop"><span class="ti"><svg class="icon" aria-hidden="true"><use href="#i-farm"/></svg></span><div><strong>Homekill done right</strong><span>Venison, sheep, beef, goats and pigs processed for you</span></div></div>
+    <div class="trust-item pop"><span class="ti"><svg class="icon" aria-hidden="true"><use href="#i-cleaver"/></svg></span><div><strong>Cut the way you want</strong><span>Tell us the cuts and we'll process it to suit</span></div></div>
+    <div class="trust-item pop"><span class="ti"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span><div><strong>Local to Makaraka</strong><span>98 Main Road, open Monday to Friday</span></div></div>
+  </div>
+</section>
+
+<!-- 4. SERVICES -->
+<section id="services" class="services">
   <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photo reveal">
-        <img src="https://images.unsplash.com/photo-1777799095908-978e9f70a872?q=80&w=1200&h=900&auto=format&fit=crop" alt="Customer choosing cuts at a butcher's counter" loading="lazy" width="1200" height="900">
-        <span class="corner">98 Main Road, Makaraka</span>
-      </div>
-      <div class="about-copy reveal">
-        <h2>The corner shop at the crossroads</h2>
-        <p>A butcher has stood at the Makaraka crossroads for over a century, right where State Highway 35 sets off around the East Cape. The sign out front still says it best: no bum steers here.</p>
-        <p>You get meat cut in front of you, a straight answer on what to cook and how long to cook it, and change from what the supermarket charges for less.</p>
-        <ul class="checklist">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Cut to order, not pre-packed</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Local corner butchery, Gisborne through and through</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Honest advice on cuts, quantities and cooking</li>
-        </ul>
-      </div>
+    <div class="section-head center">
+      <span class="eyebrow pop">What we do</span>
+      <h2 class="pop">From the paddock to the freezer</h2>
+      <p class="pop">Bring us your own animal to process, or come in for meat over the counter.</p>
     </div>
+    <div class="bento">
+      <article class="svc big pop"><div class="img"><img src="img/p-shop-1920.webp" srcset="img/p-shop-1080.webp 1080w, img/p-shop-1920.webp 1920w" sizes="(max-width:640px) 100vw, 50vw" alt="Makaraka Butchery shopfront with its Homekill Services and Meat Processing sign" width="1440" height="1920" loading="lazy"></div><div class="body"><span class="tag">Homekill</span><h3>Homekill services</h3><p>Your own venison, sheep, beef, goats or pigs processed and cut ready for the freezer.</p></div></article>
+      <article class="svc wide pop"><div class="img"><img src="img/p-roast-1920.webp" srcset="img/p-roast-1080.webp 1080w, img/p-roast-1920.webp 1920w" sizes="(max-width:640px) 100vw, 25vw" alt="Tied beef roasts and fillets (stock photo)" width="1920" height="1316" loading="lazy"></div><div class="body"><span class="tag">Processing</span><h3>Meat processing</h3><p>Carcasses broken down into roasts, steaks, chops and mince, and packed to suit your family.</p></div></article>
+      <article class="svc pop"><div class="img"><img src="img/p-steak-1920.webp" srcset="img/p-steak-1080.webp 1080w, img/p-steak-1920.webp 1920w" sizes="(max-width:640px) 100vw, 25vw" alt="Raw steaks on a wooden board (stock photo)" width="1920" height="1280" loading="lazy"></div><div class="body"><span class="tag">Counter</span><h3>Steaks &amp; cuts</h3><p>Steaks and the other cuts over the counter.</p></div></article>
+      <article class="svc pop"><div class="img"><img src="img/p-sausage-1920.webp" srcset="img/p-sausage-1080.webp 1080w, img/p-sausage-1920.webp 1920w" sizes="(max-width:640px) 100vw, 25vw" alt="Cooked sausages on a tray (stock photo)" width="1280" height="1920" loading="lazy"></div><div class="body"><span class="tag">Counter</span><h3>Sausages</h3><p>Sausages customers call "yummy".</p></div></article>
+      <article class="svc tile-text pop"><div class="body"><span class="tag">Hard to find</span><h3>Meaty pork &amp; bacon bones</h3><p>The ones that are hard to find anywhere else. Ring ahead to check what's in.</p></div></article>
+      <article class="svc tile-text pop"><div class="body"><span class="tag">By arrangement</span><h3>Slaughtering</h3><p>Slaughtering by arrangement. Give us a call to talk it through and book a time.</p></div></article>
+    </div>
+    <p class="note pop">Photos marked "stock" are examples. The shop photos are Makaraka Butchery's own.</p>
   </div>
 </section>
 
-<section id="crew">
+<!-- STATS -->
+<section class="stats" aria-label="At a glance">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2>Behind the counter</h2>
-    </div>
-    <span class="crew-note reveal">Example team. We will swap in the real crew and photos.</span>
-    <div class="crew-grid">
-      <div class="crew-card reveal">
-        <div class="avatar">HB</div>
-        <h3>Head Butcher</h3>
-        <p class="role">Runs the block</p>
-        <p>Breaks down every body that comes through the door and keeps the cabinet full.</p>
-      </div>
-      <div class="crew-card reveal">
-        <div class="avatar">SM</div>
-        <h3>Smallgoods Maker</h3>
-        <p class="role">Sausages and bacon</p>
-        <p>Mixes, links and smokes the smallgoods that keep locals coming back.</p>
-      </div>
-      <div class="crew-card reveal">
-        <div class="avatar">CO</div>
-        <h3>Counter and Orders</h3>
-        <p class="role">Front of shop</p>
-        <p>Takes your phone orders, boxes the freezer packs and knows the regulars by name.</p>
-      </div>
+    <div class="stats-grid pop">
+      <div class="stat"><b>5.0</b><span>Google rating</span></div>
+      <div class="stat"><b data-count="5">5</b><span>kinds of homekill</span></div>
+      <div class="stat"><b>7:30</b><span>open from, Mon–Fri</span></div>
+      <div class="stat"><b>98</b><span>Main Road, Makaraka</span></div>
     </div>
   </div>
 </section>
 
-<section id="reviews">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <h2>What locals say</h2>
+<!-- 5. ABOUT -->
+<section id="about" class="about">
+  <div class="wrap split">
+    <div class="collage pop">
+      <img class="c1" src="img/ab-1-1920.webp" srcset="img/ab-1-1080.webp 1080w, img/ab-1-1920.webp 1920w" sizes="(max-width:900px) 70vw, 420px" alt="The Makaraka Butchery building on Main Road with its Top Grade Meat sign" width="1920" height="1081" loading="lazy">
+      <img class="c2" src="img/p-shop-1920.webp" srcset="img/p-shop-1080.webp 1080w, img/p-shop-1920.webp 1920w" sizes="(max-width:900px) 50vw, 300px" alt="The cow mural and No Bum Steers Here sign" width="1440" height="1920" loading="lazy">
+      <img class="c3" src="img/ab-2-1920.webp" srcset="img/ab-2-1080.webp 1080w, img/ab-2-1920.webp 1920w" sizes="(max-width:900px) 40vw, 220px" alt="A raw ribeye steak (stock photo)" width="1920" height="1280" loading="lazy">
+      <div class="corner-tag">Top Grade Meat</div>
     </div>
-    <p class="review-note reveal">Example reviews written for this demo. Your real Google reviews will sit here.</p>
-    <div class="review-grid">
-      <div class="review-card reveal">
-        <div class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Popped in for a couple of scotch fillets on the way home. Cut fresh while I waited and the price beat the supermarket."</p>
-        <span class="who">Tracey M, Te Hapara</span>
-      </div>
-      <div class="review-card reveal">
-        <div class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Best sausages in Gizzy, hands down. The kids will not touch the supermarket ones any more."</p>
-        <span class="who">Hemi W, Mangapapa</span>
-      </div>
-      <div class="review-card reveal">
-        <div class="stars" aria-label="Five stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Ordered a hogget for the freezer, boned and rolled the way Dad used to get it done. Good honest service."</p>
-        <span class="who">Alan P, Patutahi</span>
-      </div>
-    </div>
-    <a class="btn btn-ember reveal" href="https://www.google.com/maps/search/?api=1&query=Makaraka%20Butchery%20Gisborne" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9L12 3z"/></svg>
-      See all our Google reviews</a>
-  </div>
-</section>
-
-<section class="banner" style="padding:70px 0">
-  <div class="wrap banner-inner">
     <div>
-      <h2>Happy with your meat?</h2>
-      <p>A quick Google review helps the whole of Gisborne find the shop. It takes about a minute.</p>
+      <span class="eyebrow pop">About us</span>
+      <h2 class="pop">The little butcher on Main Road</h2>
+      <p class="muted pop">Makaraka Butchery is the mustard-coloured shop at 98 Main Road, Makaraka, with the cow on the wall and a promise painted beside it: no bum steers here.</p>
+      <p class="muted pop">Farmers and lifestyle-block owners bring in their venison, sheep, beef, goats and pigs for homekill processing, and locals call in for steaks, sausages and the meaty pork and bacon bones that are hard to find elsewhere.</p>
+      <ul class="checklist pop">
+        <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Homekill and meat processing</li>
+        <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Friendly, clean shop with reasonable prices</li>
+        <li><span class="ck"><svg aria-hidden="true"><use href="#i-check"/></svg></span>Slaughtering by arrangement</li>
+      </ul>
     </div>
-    <a class="btn btn-ember" href="https://www.google.com/maps/search/?api=1&query=Makaraka%20Butchery%20Gisborne" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9L12 3z"/></svg>
-      Leave us a review</a>
   </div>
 </section>
 
-<section id="contact">
+<!-- 6. TEAM -->
+<section id="team" class="team">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2>Find us at the crossroads</h2>
-      <p>On the main road into Gisborne from the west. Plenty of parking right outside the door.</p>
+    <div class="section-head center">
+      <span class="eyebrow pop">Behind the counter</span>
+      <h2 class="pop">Who you'll talk to</h2>
     </div>
-    <div class="contact-card reveal">
-      <div class="contact-map">
-        <iframe title="Map showing Makaraka Butchery, 98 Main Road, Makaraka, Gisborne" src="https://www.google.com/maps?q=Makaraka%20Butchery%2C%2098%20Main%20Road%2C%20Makaraka%2C%20Gisborne&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </div>
-      <div class="contact-info">
-        <h2>Get in touch</h2>
-        <p>Ring the shop to place an order, check what is in the cabinet, or ask what to cook.</p>
-        <div class="contact-btns">
-          <a class="btn btn-ember" href="tel:+64276035143">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call Makaraka Butchery</a>
-          <a class="btn btn-ghost" data-gmail data-user="dirtdogbutchery1313" data-domain="gmail.com" data-su="Order%20enquiry" href="#contact">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
-            Email Makaraka Butchery</a>
-        </div>
-        <ul class="info-rows">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>98 Main Road, Makaraka, Gisborne 4010</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+64276035143">027 603 5143</a> or <a href="tel:+6468671420">06 867 1420</a></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg><span id="emailText">Email us any time</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Ring the shop for this week's opening hours</span></li>
-        </ul>
-        <div class="socials">
-          <a href="https://www.facebook.com/search/top?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Find Makaraka Butchery on Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.instagram.com/explore/search/keyword/?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Find Makaraka Butchery on Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
-        </div>
+    <div class="team-grid">
+      <div class="team-card pop"><div class="avatar">J</div><h3>James</h3><p class="role">Your butcher</p><p>Takes the calls, books in your homekill and talks you through how you'd like it cut and packed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow pop">Google review</span>
+      <h2 class="pop">What customers say</h2>
+      <p class="pop">Word for word from Makaraka Butchery's Google profile.</p>
+    </div>
+    <article class="review solo pop"><svg class="quote" aria-hidden="true"><use href="#i-quote"/></svg><div class="stars" aria-label="5 out of 5 stars">★★★★★</div><p>"Friendly,clean place meaty porkbones and bacon bones its hard to find meaty pork and bacon bones. Sausages are yummy steaks has fat on it lol and of cause all other cuts of meat. Prices are reasonable. Thank you makaraka butchery.Top man!"</p><footer><span class="mini">EW</span><span><strong>Edwina White</strong>Google review</span></footer></article>
+    <div class="center-cta pop"><a class="btn btn-soft" href="https://maps.google.com/?cid=11711514169541870253" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-google"/></svg>See us on Google</a></div>
+  </div>
+</section>
+
+<!-- 8. LEAVE A REVIEW -->
+<section class="leave" aria-label="Leave a review">
+  <div class="wrap">
+    <div class="leave-box pop">
+      <div><h2>Happy with your meat? Leave us a review</h2><p>A quick Google review helps other Gisborne locals find the shop.</p></div>
+      <a class="btn btn-dark" href="https://search.google.com/local/writereview?placeid=ChIJ9e1zbDF2Zm0RrUJ_QRaoh6I" target="_blank" rel="noopener">Leave a Google review</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section id="faq" class="faq">
+  <div class="wrap faq-wrap">
+    <div><span class="eyebrow pop">FAQ</span><h2 class="pop">Before you call</h2><p class="muted pop">Anything else, ring <a href="tel:+64276035143">027 603 5143</a>.</p></div>
+    <div class="faq-list pop">
+      <details><summary>What homekill do you process?</summary><p>Venison, sheep, beef, goats and pigs. Call to book your animal in and talk through how you'd like it cut and packed.</p></details>
+      <details><summary>Do you do the slaughtering?</summary><p>Slaughtering is by arrangement. Give us a ring to talk about your animal, where it is and when suits.</p></details>
+      <details><summary>Can I just come in and buy meat?</summary><p>Yes. Pop in for steaks, sausages, meaty pork and bacon bones and other cuts. Ring ahead if you're after something particular.</p></details>
+      <details><summary>When are you open?</summary><p>Monday to Friday, 7:30am to 4pm. We're closed on weekends.</p></details>
+      <details><summary>Where are you?</summary><p>98 Main Road, Makaraka, Gisborne 4010. Look for the mustard-coloured shop with the cow on the wall.</p></details>
+      <details><summary>How much does homekill processing cost?</summary><p>It depends on the animal and how you want it cut, so ring us for a price before you book it in.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CONTACT -->
+<section id="visit" class="contact">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow pop">Visit</span>
+      <h2 class="pop">Call in or give us a ring</h2>
+      <p class="muted pop">Book your homekill, ask about processing, or check what's in the cabinet today.</p>
+      <ul class="contact-rows pop">
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><span>98 Main Road, Makaraka, Gisborne 4010</span></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-phone"/></svg></span><a href="tel:+64276035143">027 603 5143</a></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-mail"/></svg></span><span id="emailText">dirtdogbutchery1313 [at] gmail.com</span></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span>Mon–Fri 7:30am–4pm · Sat &amp; Sun closed</span></li>
+      </ul>
+      <div class="socials pop">
+        <a href="https://www.facebook.com/search/top?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Search Facebook for Makaraka Butchery"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+        <a href="https://www.instagram.com/explore/search/keyword/?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Search Instagram for Makaraka Butchery"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+        <a href="https://www.tiktok.com/search?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Search TikTok for Makaraka Butchery"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
       </div>
     </div>
+    <div class="contact-card pop">
+      <h3>Get in touch</h3>
+      <p>The quickest way to book homekill is a phone call.</p>
+      <a class="btn btn-primary" href="tel:+64276035143"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Call to book homekill</a>
+      <a class="btn btn-outline-light" href="#" data-gmail data-user="dirtdogbutchery1313" data-domain="gmail.com" data-su="Homekill%20%2F%20meat%20enquiry" data-body="Hi%2C%0A%0AI'd%20like%20to%20ask%20about%3A%0AAnimal%3A%0AWhen%3A%0A%0AThanks"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email the butchery</a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. MAP -->
+<section class="map" aria-label="Map">
+  <div class="wrap">
+    <iframe title="Map to Makaraka Butchery, 98 Main Road, Makaraka, Gisborne" src="https://www.google.com/maps?q=Makaraka+Butchery,+98+Main+Road,+Makaraka,+Gisborne+4010&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 
 </main>
 
-<footer>
+<!-- 12. FOOTER -->
+<footer class="footer">
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="logo" href="#top">Makaraka <span>Butchery</span></a>
-        <p>The corner butcher at the Makaraka crossroads, Gisborne. Cut to order, no bum steers.</p>
-      </div>
-      <div>
-        <h3>The shop</h3>
-        <ul>
-          <li><a href="#services">What we cut</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#contact">Find us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>The fine print</h3>
-        <ul>
-          <li><a href="terms.html">Terms and Conditions</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-        <div class="socials" style="margin-top:1.2rem">
-          <a href="https://www.facebook.com/search/top?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Find Makaraka Butchery on Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a href="https://www.instagram.com/explore/search/keyword/?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Find Makaraka Butchery on Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
-        </div>
-      </div>
+    <div class="foot-brand"><span class="mark" aria-hidden="true">MB</span><span>© <span id="year">2026</span> Makaraka Butchery · 98 Main Road, Makaraka, Gisborne</span></div>
+    <div class="footer-links">
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJ9e1zbDF2Zm0RrUJ_QRaoh6I" target="_blank" rel="noopener">Leave a review</a>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; <span id="year"></span> Makaraka Butchery. All rights reserved.</span>
-      <span>98 Main Road, Makaraka, Gisborne</span>
+    <div class="socials">
+      <a href="https://www.facebook.com/search/top?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Search Facebook for Makaraka Butchery"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+      <a href="https://www.instagram.com/explore/search/keyword/?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Search Instagram for Makaraka Butchery"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+      <a href="https://www.tiktok.com/search?q=Makaraka%20Butchery" target="_blank" rel="noopener" aria-label="Search TikTok for Makaraka Butchery"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
     </div>
   </div>
 </footer>
 
-<script>
-(function(){
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Opening overlay
-  var intro = document.getElementById('intro');
-  window.addEventListener('load', function(){
-    setTimeout(function(){ intro.classList.add('gone'); }, reduced ? 0 : 900);
-  });
-  setTimeout(function(){ intro.classList.add('gone'); }, 2500);
-
-  // Mobile menu
-  var burger = document.querySelector('.burger');
-  var menu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', function(){
-    var open = menu.classList.toggle('open');
-    document.body.classList.toggle('menu-open', open);
-    burger.setAttribute('aria-expanded', open);
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      menu.classList.remove('open');
-      document.body.classList.remove('menu-open');
-      burger.setAttribute('aria-expanded','false');
-    });
-  });
-
-  // Hero slide rotation
-  var slides = document.querySelectorAll('.hero-slide');
-  var current = 0;
-  if(!reduced && slides.length > 1){
-    setInterval(function(){
-      slides[current].classList.remove('on');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('on');
-    }, 6000);
-  }
-
-  // Hero review quote rotation (same voices as review cards)
-  var quotes = [
-    {t:'Popped in for a couple of scotch fillets on the way home. Cut fresh while I waited and the price beat the supermarket.', w:'Tracey M, Te Hapara'},
-    {t:'Best sausages in Gizzy, hands down. The kids will not touch the supermarket ones any more.', w:'Hemi W, Mangapapa'},
-    {t:'Ordered a hogget for the freezer, boned and rolled the way Dad used to get it done. Good honest service.', w:'Alan P, Patutahi'}
-  ];
-  var qEl = document.getElementById('heroQuote');
-  var cEl = document.getElementById('heroCite');
-  var qi = 0;
-  if(!reduced && qEl){
-    setInterval(function(){
-      qEl.classList.add('fade');
-      setTimeout(function(){
-        qi = (qi + 1) % quotes.length;
-        qEl.textContent = quotes[qi].t;
-        cEl.textContent = quotes[qi].w;
-        qEl.classList.remove('fade');
-      }, 500);
-    }, 6500);
-  }
-
-  // Scroll reveals
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, {threshold:.12});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
-
-  // Gmail compose links (address assembled in JS)
-  document.querySelectorAll('a[data-gmail]').forEach(function(a){
-    var to = a.getAttribute('data-user') + '@' + a.getAttribute('data-domain');
-    a.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + '&su=' + (a.getAttribute('data-su')||'') + '&body=' + (a.getAttribute('data-body')||'');
-    a.target = '_blank';
-    a.rel = 'noopener';
-  });
-  var et = document.getElementById('emailText');
-  if(et){ et.textContent = 'dirtdogbutchery1313' + '@' + 'gmail.com'; }
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
